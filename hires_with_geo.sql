@@ -8,7 +8,8 @@ f.longitude as start_long,
 ST_GEOGPOINT(f.longitude, f.latitude) as from_p,
 t.latitude as end_lat, 
 t.longitude as end_long,
-ST_GEOGPOINT(t.longitude, t.latitude) as to_p
+ST_GEOGPOINT(t.longitude, t.latitude) as to_p,
+ST_MAKELINE(ST_GEOGPOINT(f.longitude, f.latitude),ST_GEOGPOINT(t.longitude, t.latitude)) as line
 FROM `bigquery-public-data.london_bicycles.cycle_hire` h 
 INNER JOIN  `bigquery-public-data.london_bicycles.cycle_stations` f 
     ON f.id = h.start_station_id
