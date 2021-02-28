@@ -15,5 +15,3 @@ INNER JOIN  `bigquery-public-data.london_bicycles.cycle_stations` f
     ON f.id = h.start_station_id
 INNER JOIN  `bigquery-public-data.london_bicycles.cycle_stations` t 
     ON t.id = h.end_station_id
-
-limit 1000
